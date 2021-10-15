@@ -7,6 +7,6 @@ Iki konfig'e nata gawe i3wm ben linux'e apik bro
 3. [feh](https://feh.finalrewind.org/)
 
 ## Results
-![Hasil](hasil.jpg "Hasilnya gan")
+![Hasil](https://github.com/Takane42/i3wm-config-nata/blob/master/Hasil.jpeg "Hasilnya gan")
 
 `Reminder for my self to change the picom into this one https://github.com/jonaburg/picom`
