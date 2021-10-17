@@ -6,6 +6,7 @@ Iki konfig'e nata gawe i3wm ben linux'e apik bro
 2. [picom](https://github.com/yshui/picom)
 3. [feh](https://feh.finalrewind.org/)
 4. [Rofi](https://github.com/davatorium/rofi)
+5. [Google Open Sans](https://fonts.google.com/specimen/Open+Sans)
 
 ### Picom
 [Tutorial for picom](https://www.linuxfordevices.com/tutorials/linux/picom)
