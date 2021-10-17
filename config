@@ -10,6 +10,7 @@
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
 set $mod Mod4
+set $alt Mod1
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -44,7 +45,7 @@ floating_modifier $mod
 bindsym $mod+Return exec i3-sensible-terminal
 
 # kill focused window
-bindsym $mod+Shift+q kill
+bindsym $alt+F4 kill
 
 # start dmenu (a program launcher)
 #bindsym $mod+d exec --no-startup-id dmenu_run
@@ -52,8 +53,9 @@ bindsym $mod+Shift+q kill
 #bindcode $mod+40 exec "rofi -modi drun,run -show drun"
 # There also is i3-dmenu-desktop which only displays applications shipping a
 # .desktop file. It is a wrapper around dmenu, so you need that installed.
-bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
-#bindsym $mod+d exec --not-startup-id i3-dmenu-desktop
+#bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
+bindsym $mod+p exec --no-startup-id ~/.config/rofi/bin/android_powermenu
+bindsym $mod+d exec --no-startup-id ~/.config/rofi/bin/launcher_text
 
 # change focus
 bindsym $mod+j focus left
@@ -142,6 +144,9 @@ bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 
+#change workspace name
+#bindsym $alt+r exec i3-input -F 'rename workspace to "%s"' -P 'New name: '
+
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
@@ -182,12 +187,18 @@ bar {
 	i3bar_command i3bar --transparency
         status_command i3status
 	position top
-	
+	font pango:OpenSans Regular italic 10
+	#font italic 10
+	separator_symbol "||"	
+
 	colors {
 	background #00000000
+	separator #FFFFFF
 	}
 }
 
+#fonts
+font pango:OpenSans Regular 10
 #wallpaper
 exec_always --no-startup-id feh --bg-scale /wallpaper.jpg 
 
