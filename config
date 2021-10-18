@@ -203,13 +203,20 @@ font pango:OpenSans Regular 10
 exec_always --no-startup-id feh --bg-scale /wallpaper.jpg 
 
 #buat transparannya gan ( use picom )
-exec_always --no-startup-id picom -CGb
+exec_always --no-startup-id picom --config /mnt/picom.conf --experimental-backends -b
 
 #Gaps stuff
 for_window [class=".*"] border pixel 0
-#Kasih gap dulu 10
-gaps inner 10
 
+#Kasih gap dulu 20
+gaps inner 20
+
+#Screenshot
+# take a screenshot of a screen region and copy it to a clipboard
+bindsym --release Shift+Print exec flameshot gui
+
+# take a screenshot of a whole window and copy it to a clipboard
+bindsym --release Print exec flameshot full -c -p ~/Pictures
 
 set $mode_gaps Gaps: (o)uter, (i)nner, (h)orizontal, (v)ertical, (t)op, (r)ight, (b)ottom, (l)eft
 set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
