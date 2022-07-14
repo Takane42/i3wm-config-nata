@@ -1,5 +1,5 @@
 # Config i3wm punya nata
-Iki konfig'e nata gawe i3wm ben linux'e apik bro
+Iki konfig'e nata gawe i3wm ing laptop dell ben linux'e apik bro
 
 ## Programs that are used
 1. [i3wm-gaps](https://github.com/Airblader/i3)
