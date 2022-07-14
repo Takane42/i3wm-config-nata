@@ -53,15 +53,15 @@ bindsym $alt+F4 kill
 #bindcode $mod+40 exec "rofi -modi drun,run -show drun"
 # There also is i3-dmenu-desktop which only displays applications shipping a
 # .desktop file. It is a wrapper around dmenu, so you need that installed.
-#bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
-bindsym $mod+p exec --no-startup-id ~/.config/rofi/bin/android_powermenu
-bindsym $mod+d exec --no-startup-id ~/.config/rofi/bin/launcher_text
+bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
+#bindsym $mod+p exec --no-startup-id ~/.config/rofi/bin/android_powermenu
+#bindsym $mod+d exec --no-startup-id ~/.config/rofi/bin/launcher_text
 
 # change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
+#bindsym $mod+j focus left
+#bindsym $mod+k focus down
+#bindsym $mod+l focus up
+#bindsym $mod+semicolon focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -144,6 +144,11 @@ bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 
+#move between workspace
+bindsym $mod+Control+Left workspace prev
+bindsym $mod+Control+Right workspace next
+
+
 #change workspace name
 #bindsym $alt+r exec i3-input -F 'rename workspace to "%s"' -P 'New name: '
 
@@ -187,29 +192,53 @@ bar {
 	i3bar_command i3bar --transparency
         status_command i3status
 	position top
-	font pango:OpenSans Regular italic 10
+	font pango:OpenSans Regular 8
 	#font italic 10
-	separator_symbol "||"	
+	separator_symbol " "	
 
 	colors {
-	background #00000000
+	background #00000050
 	separator #FFFFFF
 	}
 }
 
+#Screen Brightness
+#Using Light "sudo apt install light"
+bindsym XF86MonBrightnessUp exec --no-startup-id light -A 10
+bindsym XF86MonBrightnessDown exec --no-startup-id light -U 10
+
+#Lock Stuff
+#Using i3-lock-color "https://github.com/Raymo111/i3lock-color"
+bindsym $mod+l exec bash /usr/local/bin/lock.sh
+exec_always xautolock -time 3 -locker "/usr/local/bin/lock.sh"
+
+
+#Always Start Whatsapp and Telegram on workspace 3
+assign [class="TelegramDesktop"] $ws3
+assign [class="WhatSie"] $ws3
+
+
+#Touchpad stuff
+exec --no-startup-id xinput set-prop "DELL0B20:00 04F3:3146 Touchpad" 339 1
+exec --no-startup-id xinput set-prop "DELL0B20:00 04F3:3146 Touchpad" 323 1
+
+# XDM Download Manager
+exec xdman -m
+for_window [class="xdman*"] floating enable
+
 #fonts
 font pango:OpenSans Regular 10
 #wallpaper
-exec_always --no-startup-id feh --bg-scale /wallpaper.jpg 
+exec_always --no-startup-id feh --bg-fill ~/Pictures/Wallpapers/inawallpaper.jpg
 
 #buat transparannya gan ( use picom )
-exec_always --no-startup-id picom --config /mnt/picom.conf --experimental-backends -b
+exec_always --no-startup-id picom --config ~/.config/picom/picom.conf --experimental-backends -b
 
 #Gaps stuff
 for_window [class=".*"] border pixel 0
 
 #Kasih gap dulu 20
-gaps inner 20
+gaps inner 10
 
 #Screenshot
 # take a screenshot of a screen region and copy it to a clipboard
