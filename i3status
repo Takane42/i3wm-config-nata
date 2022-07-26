@@ -32,6 +32,7 @@ ethernet _first_ {
 }
 
 battery all {
+        last_full_capacity = true
         format = "%status %percentage %remaining"
         status_chr = ""
         status_bat = ""

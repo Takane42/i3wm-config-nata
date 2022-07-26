@@ -55,7 +55,7 @@ bindsym $alt+F4 kill
 # .desktop file. It is a wrapper around dmenu, so you need that installed.
 bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
 #bindsym $mod+p exec --no-startup-id ~/.config/rofi/bin/android_powermenu
-#bindsym $mod+d exec --no-startup-id ~/.config/rofi/bin/launcher_text
+#bindsym $mod+d exec --no-startup-id ~/.config/rofi/bin/launcher_colorful
 
 # change focus
 #bindsym $mod+j focus left
@@ -192,7 +192,7 @@ bar {
 	i3bar_command i3bar --transparency
         status_command i3status
 	position top
-	font pango:OpenSans Regular 8
+	#font pango:OpenSans Regular 8
 	#font italic 10
 	separator_symbol " "	
 
@@ -210,7 +210,10 @@ bindsym XF86MonBrightnessDown exec --no-startup-id light -U 10
 #Lock Stuff
 #Using i3-lock-color "https://github.com/Raymo111/i3lock-color"
 bindsym $mod+l exec bash /usr/local/bin/lock.sh
-exec_always xautolock -time 3 -locker "/usr/local/bin/lock.sh"
+#ganti jadi xidlehook
+#exec_always --no-startup-id /home/nata/.cargo//bin/xidlehook --not-when-audio --not-when-fullscreen --timer 10 '/usr/local/bin/lock.sh'
+exec_always --no-startup-id /usr/local/bin/xautoidle.sh
+#exec_always xautolock -time 3 -locker "/usr/local/bin/lock.sh"
 
 
 #Always Start Whatsapp and Telegram on workspace 3
@@ -223,7 +226,7 @@ exec --no-startup-id xinput set-prop "DELL0B20:00 04F3:3146 Touchpad" 339 1
 exec --no-startup-id xinput set-prop "DELL0B20:00 04F3:3146 Touchpad" 323 1
 
 # XDM Download Manager
-exec xdman -m
+exec --no-startup-id xdman -m
 for_window [class="xdman*"] floating enable
 
 #fonts
@@ -244,8 +247,11 @@ gaps inner 10
 # take a screenshot of a screen region and copy it to a clipboard
 bindsym --release Shift+Print exec flameshot gui
 
+# take a screenshot of a screen region and save it to a file
+bindsym --release Shift+Control+Print exec flameshot gui -p ~/Pictures/Screenshots
+
 # take a screenshot of a whole window and copy it to a clipboard
-bindsym --release Print exec flameshot full -c -p ~/Pictures
+bindsym --release Print exec flameshot full -c -p ~/Pictures/Screenshots
 
 set $mode_gaps Gaps: (o)uter, (i)nner, (h)orizontal, (v)ertical, (t)op, (r)ight, (b)ottom, (l)eft
 set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
