@@ -20,3 +20,5 @@ i am using this [Theme Library](https://github.com/adi1090x/rofi) so that i dont
 
 ## Results
 ![Hasil](https://github.com/Takane42/i3wm-config-nata/blob/master/Image/updatelaptop.png "Hasilnya gan")
+
+hehe
