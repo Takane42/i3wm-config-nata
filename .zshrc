@@ -110,9 +110,6 @@ source $ZSH/oh-my-zsh.sh
 unsetopt nomatch
 alias zshconfig="vim ~/.zshrc"
 alias i3config="vim ~/.config/i3/config"
-GITHUB_PASS=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
-alias switchgitlab="bash ~/.local/bin/switchgit"
-RANCHER_PASS=R4nch3R_N4T4!!!
 
 export PATH="$HOME/.local/bin:$PATH"
 
